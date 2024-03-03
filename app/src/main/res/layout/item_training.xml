@@ -10,7 +10,7 @@
         android:id="@+id/TextViewTrainingName"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_weight="4"
+        android:layout_weight="4 "
         android:ellipsize="end"
         android:maxLines="1"
         android:padding="5dp"
