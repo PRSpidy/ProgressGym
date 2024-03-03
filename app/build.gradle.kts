@@ -1,6 +1,12 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+
+    //Parcelable
+    id("org.jetbrains.kotlin.plugin.parcelize")
+
+    //Room
+    id("kotlin-kapt")
 }
 
 android {
@@ -9,7 +15,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.progressgym"
-        minSdk = 24
+        minSdk = 33
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -30,6 +36,10 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures {
+        // Habilitar Binding
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -41,4 +51,28 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+
+    //Fragment
+    val fragmentVersion = "1.6.2"
+    implementation("androidx.fragment:fragment-ktx:$fragmentVersion")
+
+    val hiltVersion = "2.50"
+    implementation ("com.google.dagger:hilt-android:$hiltVersion")
+    kapt ("com.google.dagger:hilt-compiler:$hiltVersion")
+
+    // Room
+    implementation ("androidx.room:room-runtime:2.6.1")
+    implementation ("androidx.room:room-ktx:2.6.1")
+    kapt ("androidx.room:room-compiler:2.6.1")
+
+    // para las listas
+    implementation("androidx.recyclerview:recyclerview:1.3.1")
+}
+
+kapt {
+    //NetworkConnectionManager
+    correctErrorTypes = true
+    javacOptions {
+        option("-Adagger.hilt.android.internal.disableAndroidSuperclassValidation=true")
+    }
 }

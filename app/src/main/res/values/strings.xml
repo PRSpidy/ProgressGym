@@ -1,3 +1,26 @@
 <resources>
     <string name="app_name">ProgressGym</string>
+    <string name="name">Nombre: </string>
+    <string name="new_training_plan">Nuevo plan de entrenamiento</string>
+    <string name="training_plan">Plan de entrenamiento</string>
+    <string name="training_plans">Planes de entrenamiento: </string>
+    <string name="trainings">Entrenamientos: </string>
+    <string name="room_database_name" translatable="false">ProgressGym_Db</string>
+
+    <string name="monday">Lunes</string>
+    <string name="tuesday">Martes</string>
+    <string name="wednesday">Miércoles</string>
+    <string name="thursday">Jueves</string>
+    <string name="friday">Viernes</string>
+    <string name="saturday">Sábado</string>
+    <string name="sunday">Domingo</string>
+
+
+
+
+
+
+
+
+
 </resources>
