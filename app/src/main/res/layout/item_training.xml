@@ -1,0 +1,37 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginVertical="5dp"
+    android:layout_marginHorizontal="10dp"
+    android:background="@drawable/rounded_corner_background">
+
+    <TextView
+        android:id="@+id/TextViewTrainingName"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="4"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:padding="5dp"
+        android:paddingStart="10dp"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/textViewDayOfTheTraining"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:padding="5dp"
+        android:paddingStart="10dp"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/textViewTrainingId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"/>
+
+</LinearLayout>
