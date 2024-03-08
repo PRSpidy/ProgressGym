@@ -50,10 +50,10 @@ class TrainingAdapter (
     inner class TrainingViewHolder(private val binding: ItemTrainingBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(training: Training) {
-            binding.TextViewTrainingName.text = training.name
+            binding.TextViewName.text = training.name
             val dayOfWeek = getDayOfWeek(training.dayEnum);
 
-            binding.textViewDayOfTheTraining.text = dayOfWeek
+            binding.textViewAditionalData.text = dayOfWeek
             binding.textViewTrainingId.text = training.id.toString()
         }
     }

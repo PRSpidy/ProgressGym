@@ -18,9 +18,10 @@ import com.example.progressgym.data.model.TrainingPlan
 import com.example.progressgym.data.repository.local.RoomTrainingDataSource
 import com.example.progressgym.data.repository.local.tables.DayEnum
 import com.example.progressgym.databinding.FragmentCommunBinding
+import com.example.progressgym.ui.exercise.ExerciseFragment
 import com.example.progressgym.utils.Resource
 
-private const val ARG_CHAT = "trainingPlan"
+private const val ARG_TRAINING_PLAN = "trainingPlan"
 class TrainingFragment : Fragment() {
 
     private lateinit var trainingAdapter: TrainingAdapter
@@ -33,21 +34,22 @@ class TrainingFragment : Fragment() {
         TrainingViewModelFactory(roomTraining)
     }
     private fun onTrainingClickItem(training: Training) {
-        /*val newFragment = DashboardFragment()
+        val newFragment = ExerciseFragment()
         val args = Bundle()
-        args.putParcelable("chat", chat)
+        args.putParcelable("trainingPlan", trainingPlan)
+        args.putParcelable("training", training)
         newFragment.arguments = args
         val transaction = parentFragmentManager.beginTransaction()
-        transaction.replace(R.id.nav_host_fragment_activity_main, newFragment)
+        transaction.replace(R.id.fragment_container, newFragment)
         transaction.addToBackStack(null)
-        transaction.commit()*/
+        transaction.commit()
 
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            trainingPlan = it.getParcelable(ARG_CHAT, TrainingPlan::class.java)
+            trainingPlan = it.getParcelable(ARG_TRAINING_PLAN, TrainingPlan::class.java)
 
         }
     }

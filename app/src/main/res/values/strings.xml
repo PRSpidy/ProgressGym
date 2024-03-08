@@ -5,6 +5,7 @@
     <string name="training_plan">Plan de entrenamiento</string>
     <string name="training_plans">Planes de entrenamiento: </string>
     <string name="trainings">Entrenamientos: </string>
+    <string name="exercises">Ejercicios: </string>
     <string name="room_database_name" translatable="false">ProgressGym_Db</string>
 
     <string name="monday">Lunes</string>
