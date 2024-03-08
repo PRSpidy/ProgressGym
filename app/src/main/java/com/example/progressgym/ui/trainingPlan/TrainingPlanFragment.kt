@@ -16,8 +16,6 @@ import com.example.progressgym.data.model.TrainingPlan
 import com.example.progressgym.data.repository.local.RoomTrainingPlanDataSource
 import com.example.progressgym.data.repository.local.tables.RoomTrainingPlan
 import com.example.progressgym.databinding.FragmentCommunBinding
-import com.example.progressgym.databinding.FragmentHeaderBinding
-import com.example.progressgym.databinding.FragmentInitialBinding
 import com.example.progressgym.ui.training.TrainingFragment
 import com.example.progressgym.utils.Resource
 
