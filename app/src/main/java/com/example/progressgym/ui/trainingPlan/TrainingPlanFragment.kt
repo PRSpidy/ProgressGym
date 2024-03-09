@@ -2,19 +2,15 @@ package com.example.progressgym.ui.trainingPlan
 
 import android.app.AlertDialog
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.CheckBox
 import android.widget.EditText
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.progressgym.R
 import com.example.progressgym.data.model.TrainingPlan
 import com.example.progressgym.data.repository.local.RoomTrainingPlanDataSource
-import com.example.progressgym.data.repository.local.tables.RoomTrainingPlan
 import com.example.progressgym.databinding.FragmentCommunBinding
 import com.example.progressgym.ui.training.TrainingFragment
 import com.example.progressgym.utils.Resource
@@ -103,7 +99,7 @@ class TrainingPlanFragment : Fragment() {
             val dialogView = inflater.inflate(R.layout.popup_new_training_plan, null)
             builder.setView(dialogView)
             builder.setPositiveButton("Aceptar") { _, _ ->
-                val newTrainingPlanName = dialogView.findViewById<EditText>(R.id.editTextTrainingPlanName).text.toString()
+                val newTrainingPlanName = dialogView.findViewById<EditText>(R.id.editTextExerciseName).text.toString()
 
                 trainingPlanViewModel.addNewTrainingPlan(newTrainingPlanName)
             }

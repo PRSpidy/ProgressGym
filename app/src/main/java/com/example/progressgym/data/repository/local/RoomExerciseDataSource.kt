@@ -65,6 +65,49 @@ class RoomExerciseDataSource: CommonExerciseRepository {
         }
     }
 
+    override suspend fun getAllMuscle(): Resource<List<Muscle>> {
+        try {
+            val allMuscles = daoMuscle.getAllMuscle()
+            val listMuscles = mutableListOf<Muscle>()
+            allMuscles.forEach{
+                listMuscles.add(Muscle(it.id, it.name))
+            }
+
+            return Resource.success(listMuscles)
+        }catch (e: Exception){
+            return Resource.error("Error getting muscles: ${e.message}")
+        }
+    }
+
+    override suspend fun getAllExercises(): Resource<List<Exercise>> {
+        try {
+
+            val allExercise = daoExercise.getAllExercises()
+            val listExercise = mutableListOf<Exercise>()
+            allExercise.forEach{
+
+                var muscleRoom = daoMuscle.getMuscleById(it.muscleId).first()
+
+                listExercise.add(Exercise(it.id, it.name, Muscle(muscleRoom.id, muscleRoom.name)))
+            }
+            return Resource.success(listExercise)
+        }catch (e: Exception){
+            return Resource.error("Error getting exercises: ${e.message}")
+        }
+    }
+
+    override suspend fun addExercisesToTraining(
+        trainingId: Int,
+        exerciseId: Int
+    ): Resource<Boolean> {
+        try {
+            daoExercise.addExerciseToTraining(trainingId, exerciseId, Date())
+            return Resource.success(true)
+        }catch (e: Exception){
+            return Resource.error("Error adding exercise to training : ${e.message}")
+        }
+    }
+
     suspend fun addAllExercises(): Boolean{
         try {
 

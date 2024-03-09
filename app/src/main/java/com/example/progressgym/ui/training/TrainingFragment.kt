@@ -2,7 +2,6 @@ package com.example.progressgym.ui.training
 
 import android.app.AlertDialog
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -136,7 +135,7 @@ class TrainingFragment : Fragment() {
         val inflater = layoutInflater
         val dialogView = inflater.inflate(R.layout.popup_new_training, null)
 
-        val spinner = dialogView.findViewById<Spinner>(R.id.spinnerDayOfWeek)
+        val spinner = dialogView.findViewById<Spinner>(R.id.spinnerMuscles)
 
         val allDays = DayEnum.entries
 
@@ -153,7 +152,7 @@ class TrainingFragment : Fragment() {
             adapter.setDropDownViewResource(R.layout.spinner_item)
             spinner.adapter = adapter
             builder.setPositiveButton("Aceptar") { _, _ ->
-                val newTrainingPlanName = dialogView.findViewById<EditText>(R.id.editTextTrainingPlanName).text.toString()
+                val newTrainingPlanName = dialogView.findViewById<EditText>(R.id.editTextExerciseName).text.toString()
                 val selectedDayName = spinner.selectedItem as String
                 val selectedDay = dayPairs.first { it.name == selectedDayName }
                 val selectedDayEnum = selectedDay.day
