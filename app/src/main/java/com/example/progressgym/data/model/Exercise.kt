@@ -8,5 +8,6 @@ import kotlinx.android.parcel.Parcelize
 data class Exercise (
     val id: Int,
     val name: String,
-    val muscle: Muscle
+    val muscle: Muscle,
+    var isSelected: Boolean = false
 ): Parcelable
