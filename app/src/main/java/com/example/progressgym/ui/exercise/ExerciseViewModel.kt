@@ -73,16 +73,16 @@ class ExerciseViewModel (
         }
     }
 
-    fun getAllExercises() {
+    fun getAllExercises(trainingId: Int) {
         viewModelScope.launch {
-            val roomResponse = getAllExercisesFromRoom()
+            val roomResponse = getAllExercisesFromRoom(trainingId)
             _exercises.value = roomResponse
         }
     }
 
-    private suspend fun getAllExercisesFromRoom(): Resource<List<Exercise>> {
+    private suspend fun getAllExercisesFromRoom(trainingId: Int): Resource<List<Exercise>> {
         return withContext(Dispatchers.IO){
-            exerciseRepository.getAllExercises()
+            exerciseRepository.getAllExercises(trainingId)
         }
     }
 

@@ -23,6 +23,7 @@ import com.example.progressgym.data.model.Training
 import com.example.progressgym.data.model.TrainingPlan
 import com.example.progressgym.data.repository.local.RoomExerciseDataSource
 import com.example.progressgym.databinding.FragmentCommunBinding
+import com.example.progressgym.ui.set.SetFragment
 import com.example.progressgym.utils.Resource
 
 private const val ARG_TRAINING_PLAN = "trainingPlan"
@@ -46,16 +47,16 @@ class ExerciseFragment : Fragment() {
     }
 
     private fun onExerciseClickItem(exercise: Exercise) {
-        /*val newFragment = ExerciseFragment()
+        val newFragment = SetFragment()
         val args = Bundle()
         args.putParcelable("trainingPlan", trainingPlan)
         args.putParcelable("training", training)
+        args.putParcelable("exercise", exercise)
         newFragment.arguments = args
         val transaction = parentFragmentManager.beginTransaction()
         transaction.replace(R.id.fragment_container, newFragment)
         transaction.addToBackStack(null)
         transaction.commit()
-*/
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -156,7 +157,7 @@ class ExerciseFragment : Fragment() {
         val layoutManager = LinearLayoutManager(requireContext())
         recyclerView.layoutManager = layoutManager
         recyclerView.adapter = addExerciseToTrainingAdaper
-        exerciseViewModel.getAllExercises()
+        exerciseViewModel.getAllExercises(training!!.id)
         addExerciseFilterName = ""
 
         //Filter dinamic of spinner

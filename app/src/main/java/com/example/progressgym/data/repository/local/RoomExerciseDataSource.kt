@@ -79,10 +79,10 @@ class RoomExerciseDataSource: CommonExerciseRepository {
         }
     }
 
-    override suspend fun getAllExercises(): Resource<List<Exercise>> {
+    override suspend fun getAllExercises(trainingId: Int): Resource<List<Exercise>> {
         try {
 
-            val allExercise = daoExercise.getAllExercises()
+            val allExercise = daoExercise.getAllExercises(trainingId)
             val listExercise = mutableListOf<Exercise>()
             allExercise.forEach{
 

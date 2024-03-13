@@ -18,6 +18,13 @@
     <string name="sunday">Domingo</string>
 
 
+    <string name="column_series">Series</string>
+    <string name="column_reps_obj">Reps Obj</string>
+    <string name="column_weight_obj">Weight Obj</string>
+    <string name="column_reps">Reps</string>
+    <string name="column_weight">Weight</string>
+    <string name="set">Serie</string>
+
 
 
 
