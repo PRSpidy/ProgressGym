@@ -12,15 +12,15 @@ import java.util.Date
 
 @Dao
 interface DaoExercise {
-    @Query("SELECT * FROM exercise join training_exercise on exercise.id = training_exercise.exericise_id WHERE training_exercise.training_id = :trainingId")
+    @Query("SELECT * FROM exercise join training_exercise on exercise.id = training_exercise.exericise_id WHERE training_exercise.training_id = :trainingId ORDER BY exercise.muscle_id")
     suspend fun getAllExercisesByTrainingPlanId(trainingId: Int): List<RoomExercise>
 
     @Query("SELECT * FROM exercise WHERE exercise.muscle_id = :muscleId")
     suspend fun getAllExercisesByMuscleId(muscleId: Int): List<RoomExercise>
 
 
-    @Query("SELECT * FROM exercise")
-    suspend fun getAllExercises(): List<RoomExercise>
+    @Query("SELECT * FROM exercise WHERE exercise.id NOT IN (SELECT training_exercise.exericise_id FROM training_exercise where training_exercise.training_id = :trainingId )")
+    suspend fun getAllExercises(trainingId: Int): List<RoomExercise>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertExercise(role: RoomExercise): Long

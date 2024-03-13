@@ -6,27 +6,36 @@
     android:layout_marginHorizontal="10dp"
     android:background="@drawable/rounded_corner_background">
 
-    <TextView
-        android:id="@+id/TextViewName"
+    <LinearLayout
+        android:id="@+id/layout_view_chat_me_container"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_weight="4  "
-        android:ellipsize="end"
-        android:maxLines="1"
-        android:padding="5dp"
-        android:paddingStart="10dp"
-        android:textSize="24sp" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/TextViewName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:width="220dp"
+            android:paddingLeft="12dp"
+            android:paddingTop="8dp"
+            android:layout_weight="2"
+            android:paddingRight="12dp"
+            android:textSize="20sp" />
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/textViewAditionalData"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:layout_weight="1"
-        android:ellipsize="end"
-        android:maxLines="1"
-        android:padding="5dp"
-        android:paddingStart="10dp"
-        android:textSize="24sp" />
+        android:paddingLeft="12dp"
+        android:paddingTop="8dp"
+        android:paddingRight="12dp"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/textViewTrainingId"
