@@ -136,7 +136,6 @@ class TrainingFragment : Fragment() {
         val dialogView = inflater.inflate(R.layout.popup_new_training, null)
 
         val spinner = dialogView.findViewById<Spinner>(R.id.spinnerMuscles)
-
         val allDays = DayEnum.entries
 
         builder.setView(dialogView)

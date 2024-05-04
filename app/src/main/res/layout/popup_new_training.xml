@@ -12,7 +12,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="20dp"
         android:text="@string/new_training_plan"
-        android:textColor="@color/black"
+        android:textSize="16dp"
         app:layout_constraintBottom_toTopOf="@+id/textViewOfExercise"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,10 +23,11 @@
         android:id="@+id/textViewOfExercise"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="28dp"
         android:layout_marginTop="20dp"
         android:text="@string/name"
         android:textColor="@color/black"
+        android:textSize="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinnerMuscles" />
 
@@ -34,7 +35,7 @@
         android:id="@+id/editTextExerciseName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="24dp"
         android:ems="10"
         android:inputType="text"
         app:layout_constraintStart_toStartOf="parent"
@@ -42,8 +43,8 @@
 
     <Spinner
         android:id="@+id/spinnerMuscles"
-        android:layout_width="136dp"
-        android:layout_height="43dp"
+        android:layout_width="177dp"
+        android:layout_height="44dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="12dp"
         android:layout_marginBottom="10dp"

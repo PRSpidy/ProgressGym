@@ -12,7 +12,8 @@ import com.example.progressgym.utils.Resource
 import java.util.Date
 
 interface CommonSetRepository {
-    suspend fun insetSet(set: Set, training: Training, exercise: Exercise): Resource<Int>
+    suspend fun insetSet(date: Date, set: Set, training: Training, exercise: Exercise): Resource<Int>
     suspend fun getSet(date: Date, trainingId: Int, exerciseId: Int): Resource<List<TablaItem>>
+    suspend fun getDays(trainingId: Int, exerciseId: Int): Resource<List<Date>>
 
 }

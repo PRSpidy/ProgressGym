@@ -12,6 +12,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -142,8 +143,7 @@ class ExerciseFragment : Fragment() {
 
     private fun newExercisePopUp(muscles: List<Muscle>) {
 
-        Log.i("saddas", muscles.toString())
-        val noneMuscle = Muscle(id = 0, name = "none")
+        val noneMuscle = Muscle(id = 0, name = "Musculos")
         val updatedMusclesList = mutableListOf(noneMuscle)
         updatedMusclesList.addAll(muscles)
 
@@ -230,6 +230,7 @@ class ExerciseFragment : Fragment() {
             override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
                 val view = super.getView(position, convertView, parent) as TextView
                 view.text = updatedMusclesList[position].name
+                view.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
                 return view
             }
 

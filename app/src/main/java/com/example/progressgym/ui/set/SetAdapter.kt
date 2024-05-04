@@ -4,6 +4,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
@@ -15,7 +16,7 @@ import kotlin.reflect.KFunction1
 
 class SetAdapter(
     private var tablaItemList: List<TablaItem>,
-    private val insertSetRoom: (Set, Int) -> Int,
+    private val insertSetRoom: (Set) -> Int,
 ) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
@@ -49,7 +50,7 @@ class SetAdapter(
                 item.set = position
             }
 
-
+            Log.i("id", item.id.toString())
             tablaViewHolder.colum1.text = tablaViewHolder.itemView.context.getString(R.string.set) + " " + item.set
             tablaViewHolder.colum2.text = item.repsObj
             tablaViewHolder.colum3.text = item.weightObj
@@ -94,12 +95,18 @@ class SetAdapter(
         val peso = holder.colum5.text.toString()
         val setNumber = holder.colum6.text.toString()
         val setId = holder.colum7.text.toString()
-
+        Log.i("position", "position.toString()")
+        val position = holder.adapterPosition
+        Log.i("position", position.toString())
         if (repsObj.isNotEmpty() && pesoObj.isNotEmpty() && reps.isNotEmpty() && peso.isNotEmpty()) {
             val set = Set(setId.toInt(), setNumber.toInt(), repsObj.toInt(), pesoObj.toFloat(), reps.toInt(), peso.toFloat())
-
-            val insertedId = insertSetRoom(set, holder.adapterPosition)
-            holder.colum7.text = insertedId.toString()
+            if(position > 0){
+                val item1 = tablaItemList[position - 1]
+                val item = Set(item1.id.toInt(), item1.set.toInt(), item1.repsObj.toInt(), item1.weightObj.toFloat(), item1.reps.toInt(), item1.weight.toFloat())
+                if(set != item){
+                    insertSetRoom(set)
+                }
+            }
         }
     }
 

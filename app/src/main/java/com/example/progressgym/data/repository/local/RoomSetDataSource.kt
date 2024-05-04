@@ -21,19 +21,21 @@ import com.example.progressgym.data.repository.local.tables.RoomMuscle
 import com.example.progressgym.data.repository.local.tables.RoomSet
 import com.example.progressgym.data.repository.local.tables.RoomTrainingExerciseSet
 import com.example.progressgym.utils.Resource
+import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Date
+import java.util.Locale
 
 class RoomSetDataSource: CommonSetRepository {
     private val daoSet: DaoSet = MyApp.db.daoSet()
-    override suspend fun insetSet(set: Set, training: Training, exercise: Exercise): Resource<Int> {
+    override suspend fun insetSet(date: Date, set: Set, training: Training, exercise: Exercise): Resource<Int> {
         try {
             var result: Int = 0;
-
+            Log.i("Create", set.id.toString())
             if(set.id == 0){
                 //Insert set
                 val calendar = Calendar.getInstance().apply {
-                    time = Date()
+                    time = date
                     set(Calendar.HOUR_OF_DAY, 0)
                     set(Calendar.MINUTE, 0)
                     set(Calendar.SECOND, 0)
@@ -97,6 +99,35 @@ class RoomSetDataSource: CommonSetRepository {
             return Resource.success(listSet)
         }catch (e: Exception){
             return Resource.error("Error getting set: ${e.message}")
+        }
+    }
+
+    override suspend fun getDays(trainingId: Int, exerciseId: Int): Resource<List<Date>> {
+        try {
+
+            val listOfDays= daoSet.getDays(trainingId, exerciseId).toMutableList()
+            val calendar = Calendar.getInstance().apply {
+                time = Date()
+                set(Calendar.HOUR_OF_DAY, 0)
+                set(Calendar.MINUTE, 0)
+                set(Calendar.SECOND, 0)
+                set(Calendar.MILLISECOND, 0)
+            }
+
+            val today = calendar.time
+
+            val todayInList = listOfDays.any { it == today }
+
+            if (!todayInList) {
+                listOfDays.add(0, today)
+            }
+
+
+            val distinct = listOfDays.distinct().toList()
+            Log.i("list of days", distinct.toString())
+            return Resource.success(distinct)
+        }catch (e: Exception){
+            return Resource.error("Error getting days: ${e.message}")
         }
     }
 
