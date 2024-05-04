@@ -10,8 +10,8 @@ data class RoomSet (
     @PrimaryKey(autoGenerate = true) var id: Int = 0,
     @ColumnInfo(name ="set_number") val setNumber: Int,
     @ColumnInfo(name ="reps") val reps: Int,
-    @ColumnInfo(name ="weight") val weight: Int,
+    @ColumnInfo(name ="weight") val weight: Float,
     @ColumnInfo(name ="reps_obj") val repsObj: Int,
-    @ColumnInfo(name ="weight_obj") val weightObj: Int,
+    @ColumnInfo(name ="weight_obj") val weightObj: Float,
     @ColumnInfo(name ="created_at") val createdAt: Date?,
     )

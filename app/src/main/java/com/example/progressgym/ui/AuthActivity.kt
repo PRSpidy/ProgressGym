@@ -8,6 +8,7 @@ import com.example.progressgym.MyApp
 import com.example.progressgym.R
 import com.example.progressgym.data.repository.local.RoomExerciseDataSource
 import com.example.progressgym.ui.initial.InitialFragment
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
 class AuthActivity  : AppCompatActivity() {
